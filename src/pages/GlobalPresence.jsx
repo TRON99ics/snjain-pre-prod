@@ -8,6 +8,7 @@ import Reveal from '../components/ui/Reveal';
 import Counter from '../components/ui/Counter';
 import TradeMap from '../components/global/TradeMap';
 import { regions, globalStats } from '../data/site';
+import { media } from '../data/media';
 import { EASE } from '../lib/motion';
 
 export default function GlobalPresence() {
@@ -20,7 +21,7 @@ export default function GlobalPresence() {
         eyebrow="Global Presence"
         title={['Rooted in India.', 'Trading worldwide.']}
         intro="A Bhiwandi hub connected to international trade corridors — moving non-ferrous metal across borders with clean documentation and predictable logistics."
-        image="/img/hero/mainbg4.jpg"
+        image={media.hero.images.mainbg4}
       />
 
       {/* Stats */}

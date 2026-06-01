@@ -3,6 +3,7 @@ import PageHero from '../components/sections/PageHero';
 import CtaBand from '../components/sections/CtaBand';
 import Reveal from '../components/ui/Reveal';
 import { services } from '../data/services';
+import { media } from '../data/media';
 
 export default function Services() {
   return (
@@ -12,7 +13,7 @@ export default function Services() {
         eyebrow="Services"
         title={['Full-chain metal', 'trade & supply.']}
         intro="From procurement to final dispatch, every link in the chain is handled in-house — so material arrives graded, documented and on schedule."
-        image="/img/hero/mainbg2.jpg"
+        image={media.hero.images.mainbg2}
       />
 
       <section className="bg-white">

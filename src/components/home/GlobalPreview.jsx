@@ -3,12 +3,13 @@ import Reveal from '../ui/Reveal';
 import Button from '../ui/Button';
 import Counter from '../ui/Counter';
 import { globalStats } from '../../data/site';
+import { media } from '../../data/media';
 
 export default function GlobalPreview() {
   return (
     <section className="relative overflow-hidden bg-ink py-20 text-white lg:py-28">
       <img
-        src="/img/hero/mainbg4.jpg"
+        src={media.hero.images.mainbg4}
         alt=""
         className="absolute inset-0 h-full w-full object-cover opacity-20"
       />

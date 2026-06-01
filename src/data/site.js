@@ -1,3 +1,5 @@
+import { media } from './media';
+
 export const industries = [
   {
     no: '01',
@@ -118,31 +120,31 @@ export const infrastructure = [
     no: '01',
     title: 'Warehousing',
     body: 'A dedicated Bhiwandi facility provides the covered storage depth to hold buffer stock and fulfil large, recurring orders.',
-    image: '/img/about/1.jpg',
+    image: media.infrastructure.warehousing,
   },
   {
     no: '02',
     title: 'Sorting & Segregation',
     body: 'Incoming material is sorted by grade and alloy, with contaminants removed so buyers receive clean, classified lots.',
-    image: '/img/about/2.jpg',
+    image: media.infrastructure.sorting,
   },
   {
     no: '03',
     title: 'Processing',
     body: 'Recovered metal is processed and prepared for re-melting and re-use — furnace-ready material that performs to expectation.',
-    image: '/img/about/3.jpg',
+    image: media.infrastructure.processing,
   },
   {
     no: '04',
     title: 'Quality Control',
     body: 'Calibrated weighing, grade verification and documentation before dispatch ensure every consignment matches the order.',
-    image: '/img/about/4.jpg',
+    image: media.infrastructure.quality,
   },
   {
     no: '05',
     title: 'Transportation',
     body: 'Coordinated truck and container logistics move material from the warehouse to destinations across India and overseas.',
-    image: '/img/hero/mainbg3.jpg',
+    image: media.infrastructure.transport,
   },
 ];
 

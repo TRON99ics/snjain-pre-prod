@@ -6,6 +6,7 @@ import Reveal from '../components/ui/Reveal';
 import Counter from '../components/ui/Counter';
 import ParallaxImage from '../components/ui/ParallaxImage';
 import { sustainabilityImpact, sustainabilityPillars } from '../data/site';
+import { media } from '../data/media';
 
 export default function Sustainability() {
   return (
@@ -15,7 +16,7 @@ export default function Sustainability() {
         eyebrow="Sustainability"
         title={['Metal kept in', 'productive use.']}
         intro="Recycling is not a programme bolted on to our business — it is the business. Every tonne recovered is a tonne that does not need to be mined."
-        image="/img/products/Aluminium_cabel_wire_scrap.jpg"
+        image={media.sustainability.hero}
       />
 
       {/* Statement */}
@@ -56,7 +57,7 @@ export default function Sustainability() {
                 title={['A circular', 'metals economy.']}
               />
               <Reveal custom={2} className="mt-8">
-                <ParallaxImage src="/img/about/3.jpg" alt="Recycling and recovery" className="aspect-[4/3] w-full" />
+                <ParallaxImage src={media.sustainability.recovery} alt="Recycling and recovery" className="aspect-[4/3] w-full" />
               </Reveal>
             </div>
             <div className="lg:col-span-7">

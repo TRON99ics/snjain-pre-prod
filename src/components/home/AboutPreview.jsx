@@ -2,6 +2,7 @@ import Reveal from '../ui/Reveal';
 import Button from '../ui/Button';
 import ParallaxImage from '../ui/ParallaxImage';
 import Counter from '../ui/Counter';
+import { media } from '../../data/media';
 
 export default function AboutPreview() {
   return (
@@ -11,7 +12,7 @@ export default function AboutPreview() {
           <div className="md:col-span-1 lg:col-span-6">
             <div className="relative">
               <ParallaxImage
-                src="/img/about/2.jpg"
+                src={media.about.preview}
                 alt="Industrial metal warehousing"
                 className="aspect-[4/5] w-full max-h-[70vh] object-cover sm:max-h-none"
               />

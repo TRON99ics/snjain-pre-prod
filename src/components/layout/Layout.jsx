@@ -4,6 +4,7 @@ import { NavMenuProvider } from '../../context/NavMenuContext';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
+import AudioToggle from './AudioToggle';
 import QuoteModal from './QuoteModal';
 
 export default function Layout() {
@@ -14,6 +15,7 @@ export default function Layout() {
         <Outlet />
       </Suspense>
       <Footer />
+      <AudioToggle />
       <WhatsAppButton />
       <QuoteModal />
     </NavMenuProvider>

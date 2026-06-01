@@ -6,6 +6,7 @@ import ParallaxImage from '../components/ui/ParallaxImage';
 import Button from '../components/ui/Button';
 import { useQuote } from '../context/QuoteContext';
 import { materials } from '../data/materials';
+import { media } from '../data/media';
 
 export default function Materials() {
   const { openQuote } = useQuote();
@@ -16,7 +17,7 @@ export default function Materials() {
         eyebrow="Materials & Products"
         title={['Non-ferrous metals,', 'graded for industry.']}
         intro="Aluminium, copper, brass and refined industrial metals — sorted, inspected and prepared for re-melting, extrusion and manufacturing."
-        image="/img/products/red_copper_pipe_scrap.jpg"
+        image={media.materials.copper}
       />
 
       <section className="bg-white">

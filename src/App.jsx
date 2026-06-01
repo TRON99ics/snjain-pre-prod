@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import SmoothScroll from './lib/SmoothScroll';
 import { QuoteProvider } from './context/QuoteContext';
+import { SiteAudioProvider } from './context/SiteAudioContext';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 
@@ -41,9 +42,11 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <QuoteProvider>
-      <SmoothScroll>
-        <AnimatedRoutes />
-      </SmoothScroll>
+      <SiteAudioProvider>
+        <SmoothScroll>
+          <AnimatedRoutes />
+        </SmoothScroll>
+      </SiteAudioProvider>
     </QuoteProvider>
   );
 }

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { company } from '../../data/company';
 import { navLinks } from '../../data/nav';
 import { useQuote } from '../../context/QuoteContext';
+import { media } from '../../data/media';
 
 export default function Footer() {
   const { openQuote } = useQuote();
@@ -13,7 +14,7 @@ export default function Footer() {
         <div className="grid gap-12 border-b border-white/10 py-16 md:grid-cols-2 md:gap-x-10 lg:grid-cols-12 lg:py-24">
           <div className="md:col-span-2 lg:col-span-5">
             <div className="flex items-center gap-3">
-              <img src="/img/brand/logo.svg" alt="" className="h-12 w-12" />
+              <img src={media.brand.logo} alt="" className="h-12 w-auto max-w-[140px] object-contain" />
               <div className="leading-tight">
                 <p className="font-display text-lg font-extrabold uppercase tracking-tight">Sha Mulchand</p>
                 <p className="text-xs uppercase tracking-[0.2em] text-white/50">Navalram Jain</p>

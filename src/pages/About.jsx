@@ -5,6 +5,7 @@ import SectionHeading from '../components/ui/SectionHeading';
 import Reveal from '../components/ui/Reveal';
 import ParallaxImage from '../components/ui/ParallaxImage';
 import { values, milestones } from '../data/company';
+import { media } from '../data/media';
 
 export default function About() {
   return (
@@ -14,7 +15,7 @@ export default function About() {
         eyebrow="About Us"
         title={['Three generations', 'of metal trade.']}
         intro="A family enterprise built on integrity since 1965 — supplying non-ferrous metals and scrap to industry across India and global markets."
-        image="/img/about/1.jpg"
+        image={media.about.hero}
       />
 
       {/* Intro statement */}
@@ -115,7 +116,7 @@ export default function About() {
         <div className="mx-auto max-w-8xl px-5 sm:px-6 lg:px-10">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
-              <ParallaxImage src="/img/about/4.jpg" alt="Leadership at the facility" className="aspect-[4/5] w-full" />
+              <ParallaxImage src={media.about.leadership} alt="Leadership at the facility" className="aspect-[4/5] w-full" />
             </div>
             <div className="lg:col-span-7 lg:pl-6">
               <Reveal>

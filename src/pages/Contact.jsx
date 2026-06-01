@@ -4,6 +4,8 @@ import PageHero from '../components/sections/PageHero';
 import Reveal from '../components/ui/Reveal';
 import { useQuote } from '../context/QuoteContext';
 import { company } from '../data/company';
+import { media } from '../data/media';
+import ContactMap from '../components/contact/ContactMap';
 
 function istTime() {
   return new Date().toLocaleString('en-IN', {
@@ -60,7 +62,7 @@ export default function Contact() {
         eyebrow="Contact"
         title={['Let’s talk', 'material.']}
         intro="Procurement teams, manufacturers and exporters — reach our desk directly for availability, grades, pricing and logistics."
-        image="/img/hero/mainbg2.jpg"
+        image={media.hero.images.mainbg2}
       />
 
       <section className="bg-white py-20 lg:py-28">
@@ -177,17 +179,8 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map */}
-      <section className="bg-steel-50">
-        <div className="h-[min(420px,55vh)] w-full grayscale sm:h-[420px]">
-          <iframe
-            title="Bhiwandi facility location"
-            src="https://www.google.com/maps?q=Bhiwandi,Maharashtra,India&output=embed"
-            className="h-full w-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
+      <section className="bg-ink">
+        <ContactMap />
       </section>
     </PageWrapper>
   );

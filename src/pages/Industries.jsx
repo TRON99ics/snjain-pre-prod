@@ -4,6 +4,7 @@ import CtaBand from '../components/sections/CtaBand';
 import SectionHeading from '../components/ui/SectionHeading';
 import Reveal from '../components/ui/Reveal';
 import { industries } from '../data/site';
+import { media } from '../data/media';
 
 export default function Industries() {
   return (
@@ -13,7 +14,7 @@ export default function Industries() {
         eyebrow="Industries Served"
         title={['Material for the', 'industries that', 'build things.']}
         intro="From foundries to fabricators, our non-ferrous metals feed production across the sectors that depend on dependable supply."
-        image="/img/hero/mainbg3.jpg"
+        image={media.hero.images.mainbg3}
       />
 
       <section className="bg-white py-20 lg:py-28">

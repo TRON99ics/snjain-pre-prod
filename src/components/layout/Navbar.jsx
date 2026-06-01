@@ -6,6 +6,7 @@ import { company } from '../../data/company';
 import { useQuote } from '../../context/QuoteContext';
 import { useNavMenu } from '../../context/NavMenuContext';
 import { EASE } from '../../lib/motion';
+import { media } from '../../data/media';
 
 export default function Navbar() {
   const { menuOpen, setMenuOpen } = useNavMenu();
@@ -41,7 +42,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex h-[76px] max-w-8xl items-center justify-between px-5 sm:px-6 lg:px-10">
         <Link to="/" className="flex min-w-0 items-center gap-2 sm:gap-3" aria-label={company.legalName}>
-          <img src="/img/brand/logo.svg" alt="" className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
+          <img src={media.brand.logo} alt="" className="h-9 w-auto max-h-10 shrink-0 object-contain sm:h-10" />
           <span className="hidden min-w-0 flex-col leading-none sm:flex">
             <span
               className={`truncate font-display text-sm font-extrabold uppercase tracking-tight ${dark ? 'text-ink' : 'text-white'}`}

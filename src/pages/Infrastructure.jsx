@@ -5,6 +5,7 @@ import SectionHeading from '../components/ui/SectionHeading';
 import Reveal from '../components/ui/Reveal';
 import ParallaxImage from '../components/ui/ParallaxImage';
 import { infrastructure } from '../data/site';
+import { media } from '../data/media';
 
 export default function Infrastructure() {
   return (
@@ -14,7 +15,7 @@ export default function Infrastructure() {
         eyebrow="Infrastructure"
         title={['The facility', 'behind the supply.']}
         intro="A dedicated Bhiwandi operation — warehousing, sorting, processing, quality control and transport, built to move industrial volume reliably."
-        image="/img/about/1.jpg"
+        image={media.infrastructure.hero}
       />
 
       <section className="bg-white py-20 lg:py-28">

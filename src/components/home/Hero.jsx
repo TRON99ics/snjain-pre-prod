@@ -1,14 +1,64 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useQuote } from '../../context/QuoteContext';
 import { maskUp, stagger, fadeUp } from '../../lib/motion';
 import Counter from '../ui/Counter';
 import { stats } from '../../data/company';
+import { media } from '../../data/media';
+import { useSiteAudio } from '../../context/SiteAudioContext';
+
+const VIDEO_LOAD_TIMEOUT_MS = 12000;
 
 export default function Hero() {
   const ref = useRef(null);
+  const videoRef = useRef(null);
   const { openQuote } = useQuote();
+  const { enableAudible } = useSiteAudio();
+  const [usePoster, setUsePoster] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  );
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const showPoster = () => setUsePoster(true);
+
+    if (mq.matches) {
+      showPoster();
+      return undefined;
+    }
+
+    if (!video) return undefined;
+
+    const onError = () => showPoster();
+    video.addEventListener('error', onError);
+
+    const loadTimer = window.setTimeout(() => {
+      if (video.readyState < 2) showPoster();
+    }, VIDEO_LOAD_TIMEOUT_MS);
+
+    const syncPlayback = () => {
+      if (mq.matches) {
+        video.pause();
+        showPoster();
+      } else {
+        video.play().catch(showPoster);
+      }
+    };
+
+    syncPlayback();
+    mq.addEventListener('change', syncPlayback);
+
+    return () => {
+      mq.removeEventListener('change', syncPlayback);
+      video.removeEventListener('error', onError);
+      window.clearTimeout(loadTimer);
+    };
+  }, []);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '22%']);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
@@ -21,10 +71,26 @@ export default function Hero() {
     >
       <motion.div style={{ y, scale }} className="pointer-events-none absolute inset-0">
         <img
-          src="/img/hero/mainbg1.jpg"
-          alt="Non-ferrous metal processing yard"
-          className="h-full w-full object-cover"
+          src={media.hero.poster}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-hidden="true"
         />
+        {!usePoster && (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover"
+            src={media.hero.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={media.hero.poster}
+            aria-hidden="true"
+            onError={() => setUsePoster(true)}
+          />
+        )}
       </motion.div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/40" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/70 to-transparent" />
@@ -49,7 +115,7 @@ export default function Hero() {
             animate="show"
             className="mt-4 max-w-5xl font-display text-[2rem] font-extrabold uppercase leading-[0.92] tracking-tight text-white min-[400px]:text-[2.35rem] sm:mt-5 sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]"
           >
-            {['Trusted non-ferrous', 'metal & scrap', 'solutions.'].map((line, i) => (
+            {['Trading non-ferrous', 'metals & scrap', 'solutions.'].map((line, i) => (
               <span key={i} className="block overflow-hidden">
                 <motion.span
                   variants={maskUp}
@@ -81,7 +147,10 @@ export default function Hero() {
             className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row"
           >
             <button
-              onClick={openQuote}
+              onClick={() => {
+                void enableAudible();
+                openQuote();
+              }}
               className="group inline-flex items-center justify-center gap-3 bg-red px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-white hover:text-ink"
             >
               Request a Quote
@@ -89,6 +158,7 @@ export default function Hero() {
             </button>
             <Link
               to="/materials"
+              onClick={() => void enableAudible()}
               className="group inline-flex items-center justify-center gap-3 border border-white/30 px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-white hover:text-ink"
             >
               View Materials
