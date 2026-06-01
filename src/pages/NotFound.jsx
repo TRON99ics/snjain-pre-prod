@@ -7,7 +7,7 @@ export default function NotFound() {
       <section className="flex min-h-[80vh] items-center bg-ink text-white">
         <div className="mx-auto max-w-8xl px-5 sm:px-6 lg:px-10">
           <span className="eyebrow">Error 404</span>
-          <h1 className="mt-6 font-display text-6xl font-extrabold uppercase leading-[0.9] tracking-tight sm:text-8xl">
+          <h1 className="mt-6 font-display text-5xl font-extrabold uppercase leading-[0.9] tracking-tight sm:text-6xl md:text-8xl">
             Page not
             <br />
             found.

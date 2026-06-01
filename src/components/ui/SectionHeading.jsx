@@ -28,7 +28,7 @@ export default function SectionHeading({
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.5 }}
-        className={`mt-6 font-display text-4xl font-extrabold uppercase leading-[0.98] tracking-tight sm:text-5xl lg:text-6xl ${
+        className={`mt-6 font-display text-3xl font-extrabold uppercase leading-[0.98] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl ${
           light ? 'text-white' : 'text-ink'
         }`}
       >

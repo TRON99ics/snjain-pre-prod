@@ -65,9 +65,9 @@ export default function Contact() {
 
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-8xl px-5 sm:px-6 lg:px-10">
-          <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+          <div className="grid gap-16 md:grid-cols-12 md:gap-12 lg:gap-20">
             {/* Form */}
-            <div className="lg:col-span-7">
+            <div className="md:col-span-7">
               <Reveal>
                 <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight text-ink lg:text-4xl">
                   Send an enquiry
@@ -116,7 +116,7 @@ export default function Contact() {
                     <button
                       type="button"
                       onClick={openQuote}
-                      className="text-xs font-semibold uppercase tracking-[0.18em] text-ink underline-offset-4 hover:underline"
+                      className="inline-flex min-h-11 items-center px-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink underline-offset-4 hover:underline"
                     >
                       Or request a quote
                     </button>
@@ -126,7 +126,7 @@ export default function Contact() {
             </div>
 
             {/* Details */}
-            <div className="lg:col-span-5 lg:border-l lg:border-steel-100 lg:pl-16">
+            <div className="md:col-span-5 md:border-t md:border-steel-100 md:pt-12 lg:border-l lg:border-t-0 lg:pt-0 lg:pl-16">
               <Reveal className="space-y-10">
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-red">Call</p>
@@ -136,7 +136,10 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-red">Email</p>
-                  <button onClick={copyEmail} className="mt-3 block font-display text-2xl font-bold text-ink hover:text-red">
+                  <button
+                    onClick={copyEmail}
+                    className="mt-3 block break-all text-left font-display text-xl font-bold text-ink hover:text-red sm:text-2xl"
+                  >
                     {company.email}
                   </button>
                   <span className="text-xs text-steel-400">{copied ? 'Copied to clipboard' : 'Click to copy'}</span>
@@ -176,7 +179,7 @@ export default function Contact() {
 
       {/* Map */}
       <section className="bg-steel-50">
-        <div className="h-[420px] w-full grayscale">
+        <div className="h-[min(420px,55vh)] w-full grayscale sm:h-[420px]">
           <iframe
             title="Bhiwandi facility location"
             src="https://www.google.com/maps?q=Bhiwandi,Maharashtra,India&output=embed"

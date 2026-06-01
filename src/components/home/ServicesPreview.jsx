@@ -30,16 +30,21 @@ export default function ServicesPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.6, delay: (i % 3) * 0.05 }}
-                className="grid grid-cols-[2.5rem_1fr_1.5rem] items-center gap-x-5 py-7 transition-colors duration-300 group-hover:bg-white/[0.03] md:grid-cols-[3rem_220px_minmax(0,1fr)_1.5rem] md:gap-x-8 lg:grid-cols-[3rem_280px_minmax(0,1fr)_1.5rem] lg:py-8 xl:grid-cols-[3rem_320px_minmax(0,1fr)_1.5rem]"
+                className="grid grid-cols-[2.5rem_1fr_1.5rem] items-start gap-x-5 py-7 transition-colors duration-300 group-hover:bg-white/[0.03] lg:grid-cols-[3rem_minmax(12rem,32%)_1fr_1.5rem] lg:items-center lg:gap-x-8 lg:py-8"
               >
-                <span className="font-display text-sm font-bold text-red">{service.no}</span>
-                <h3 className="font-display text-2xl font-bold uppercase leading-tight tracking-tight transition-transform duration-300 group-hover:translate-x-2 sm:text-3xl lg:text-4xl">
-                  {service.title}
-                </h3>
-                <p className="hidden text-sm leading-relaxed text-white/55 md:block md:pr-4">
+                <span className="pt-1 font-display text-sm font-bold text-red lg:pt-0">{service.no}</span>
+                <div className="min-w-0 lg:contents">
+                  <h3 className="font-display text-xl font-bold uppercase leading-tight tracking-tight transition-transform duration-300 group-hover:translate-x-2 sm:text-2xl md:text-3xl lg:text-4xl">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-white/55 lg:hidden">
+                    {service.short}
+                  </p>
+                </div>
+                <p className="hidden min-w-0 text-sm leading-relaxed text-white/55 lg:block lg:pr-4">
                   {service.short}
                 </p>
-                <span className="justify-self-end text-xl text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-red">
+                <span className="justify-self-end pt-1 text-xl text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-red lg:pt-0">
                   &rarr;
                 </span>
               </motion.div>

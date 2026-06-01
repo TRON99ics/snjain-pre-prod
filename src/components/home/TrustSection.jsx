@@ -11,7 +11,7 @@ export default function TrustSection() {
         <div className="grid grid-cols-2 gap-px overflow-hidden border border-steel-100 bg-steel-100 lg:hidden">
           {stats.map((s) => (
             <div key={s.label} className="bg-white p-6">
-              <p className="font-display text-3xl font-extrabold text-ink">
+              <p className="font-display text-2xl font-extrabold text-ink sm:text-3xl">
                 <Counter to={s.value} suffix={s.suffix} />
               </p>
               <p className="mt-2 text-xs uppercase tracking-[0.14em] text-steel-400">{s.label}</p>
@@ -19,7 +19,7 @@ export default function TrustSection() {
           ))}
         </div>
 
-        <div className="mt-16 grid gap-12 lg:mt-0 lg:grid-cols-12 lg:gap-16">
+        <div className="mt-10 grid gap-12 sm:mt-16 lg:mt-0 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
               eyebrow="Why procurement teams choose us"

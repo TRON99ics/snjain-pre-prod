@@ -33,10 +33,10 @@ export default function Sustainability() {
       {/* Impact stats */}
       <section className="bg-ink py-20 text-white lg:py-24">
         <div className="mx-auto max-w-8xl px-5 sm:px-6 lg:px-10">
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-3">
             {sustainabilityImpact.map((s) => (
               <Reveal key={s.label} className="bg-ink p-8 lg:p-12">
-                <p className="font-display text-6xl font-extrabold lg:text-7xl">
+                <p className="font-display text-4xl font-extrabold sm:text-5xl lg:text-7xl">
                   {s.display ? s.display : <Counter to={s.value} suffix={s.suffix} prefix={s.prefix || ''} />}
                 </p>
                 <p className="mt-4 max-w-xs text-sm leading-relaxed text-steel-200">{s.label}</p>

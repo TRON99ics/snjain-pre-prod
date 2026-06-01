@@ -26,7 +26,7 @@ export default function Materials() {
             return (
               <div
                 key={m.slug}
-                className={`grid items-center gap-10 border-b border-steel-100 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24 ${
+                className={`grid items-center gap-10 border-b border-steel-100 py-16 md:grid-cols-2 md:gap-12 lg:gap-16 lg:py-24 ${
                   i === 0 ? 'border-t' : ''
                 }`}
               >

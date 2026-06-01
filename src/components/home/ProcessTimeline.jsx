@@ -66,7 +66,7 @@ export default function ProcessTimeline() {
         className="relative hidden lg:flex lg:h-screen lg:w-max lg:items-stretch lg:will-change-transform"
       >
         {/* Intro — ~52vw so the first step card is visible on the right */}
-        <div className="flex h-full w-[52vw] max-w-[840px] min-w-[420px] shrink-0 flex-col justify-center border-r border-white/10 px-10 2xl:w-[48vw] 2xl:max-w-[920px] 2xl:px-24">
+        <div className="flex h-full w-[min(52vw,840px)] shrink-0 flex-col justify-center border-r border-white/10 px-6 sm:px-10 2xl:w-[48vw] 2xl:max-w-[920px] 2xl:px-24">
           <span className="eyebrow">The Process</span>
           <h2 className="mt-6 max-w-xl font-display text-5xl font-extrabold uppercase leading-[0.95] tracking-tight xl:text-6xl">
             From source to dispatch.
@@ -88,7 +88,7 @@ export default function ProcessTimeline() {
         {processSteps.map((step, i) => (
           <div
             key={step.no}
-            className={`process-card flex h-full w-[36vw] max-w-[520px] shrink-0 flex-col justify-center border-l border-white/10 px-10 2xl:px-16 ${
+            className={`process-card flex h-full w-[min(36vw,520px)] shrink-0 flex-col justify-center border-l border-white/10 px-6 sm:px-10 2xl:px-16 ${
               i === activeStep ? 'bg-white/[0.03]' : ''
             }`}
           >

@@ -35,6 +35,12 @@
     overflow-x: hidden;
   }
 
+  @supports (padding: max(0px)) {
+    .safe-bottom {
+      padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+    }
+  }
+
   ::selection {
     background: var(--red);
     color: #fff;
@@ -158,10 +164,10 @@
   background: #141212 !important;
   color: #fff !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
 }
 
 .trade-map .leaflet-control-zoom a:hover {
@@ -185,8 +191,8 @@
 
 .trade-marker {
   position: relative;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
 }
 
 .trade-marker__dot {

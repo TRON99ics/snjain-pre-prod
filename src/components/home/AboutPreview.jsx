@@ -7,16 +7,16 @@ export default function AboutPreview() {
   return (
     <section className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-8xl px-5 sm:px-6 lg:px-10">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-6">
+        <div className="grid items-center gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-16">
+          <div className="md:col-span-1 lg:col-span-6">
             <div className="relative">
               <ParallaxImage
                 src="/img/about/2.jpg"
                 alt="Industrial metal warehousing"
-                className="aspect-[4/5] w-full"
+                className="aspect-[4/5] w-full max-h-[70vh] object-cover sm:max-h-none"
               />
-              <div className="absolute -bottom-px -right-px hidden bg-red px-8 py-7 text-white sm:block">
-                <p className="font-display text-5xl font-extrabold leading-none">
+              <div className="mt-4 inline-block bg-red px-6 py-5 text-white sm:absolute sm:bottom-0 sm:right-0 sm:mt-0 sm:px-8 sm:py-7">
+                <p className="font-display text-4xl font-extrabold leading-none sm:text-5xl">
                   <Counter to={60} suffix="+" />
                 </p>
                 <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/80">Years of trade</p>
@@ -24,7 +24,7 @@ export default function AboutPreview() {
             </div>
           </div>
 
-          <div className="lg:col-span-6 lg:pl-6">
+          <div className="md:col-span-1 lg:col-span-6 lg:pl-6">
             <Reveal>
               <span className="eyebrow">Our story</span>
             </Reveal>

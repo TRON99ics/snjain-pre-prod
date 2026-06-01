@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative flex h-[100svh] min-h-[640px] flex-col overflow-hidden bg-ink"
+      className="relative flex h-[100svh] max-h-[100svh] flex-col overflow-hidden bg-ink"
     >
       <motion.div style={{ y, scale }} className="pointer-events-none absolute inset-0">
         <img
@@ -29,11 +29,10 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/40" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/70 to-transparent" />
 
-      {/* Content + stats in one column so nothing overlaps */}
-      <div className="relative mx-auto flex min-h-0 w-full max-w-8xl flex-1 flex-col px-5 pt-28 sm:px-6 sm:pt-32 lg:px-10">
+      <div className="relative mx-auto flex h-full min-h-0 w-full max-w-8xl flex-col px-5 pb-0 pt-24 sm:px-6 sm:pt-28 lg:px-10 lg:pt-32">
         <motion.div
           style={{ opacity }}
-          className="flex min-h-0 flex-1 flex-col justify-end pb-8 sm:pb-10 lg:pb-12"
+          className="flex min-h-0 flex-1 flex-col justify-end pb-6 sm:pb-8 lg:pb-10"
         >
           <motion.span
             initial={{ opacity: 0, y: 14 }}
@@ -48,7 +47,7 @@ export default function Hero() {
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="mt-5 max-w-5xl font-display text-[2.6rem] font-extrabold uppercase leading-[0.92] tracking-tight text-white sm:mt-6 sm:text-6xl lg:text-7xl xl:text-[5.5rem]"
+            className="mt-4 max-w-5xl font-display text-[2rem] font-extrabold uppercase leading-[0.92] tracking-tight text-white min-[400px]:text-[2.35rem] sm:mt-5 sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]"
           >
             {['Trusted non-ferrous', 'metal & scrap', 'solutions.'].map((line, i) => (
               <span key={i} className="block overflow-hidden">
@@ -68,7 +67,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={4}
-            className="mt-6 max-w-xl text-base leading-relaxed text-steel-200 sm:mt-7 sm:text-lg"
+            className="mt-5 max-w-xl text-base leading-relaxed text-steel-200 sm:mt-6 sm:text-lg"
           >
             Supplying manufacturers, fabricators and exporters across India and global markets with consistent
             grades, inspected volume and dependable logistics.
@@ -79,7 +78,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={5}
-            className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row"
+            className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row"
           >
             <button
               onClick={openQuote}
@@ -98,7 +97,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Stats — in flow below CTAs on desktop; mobile uses TrustSection */}
+        {/* Stats sit inside the viewport — marquee is the next section below */}
         <motion.div
           style={{ opacity }}
           initial={{ opacity: 0, y: 12 }}
@@ -110,7 +109,7 @@ export default function Hero() {
             {stats.map((s, i) => (
               <div
                 key={s.label}
-                className={`py-5 xl:py-6 ${i > 0 ? 'border-l border-white/10 pl-6 xl:pl-8' : ''}`}
+                className={`py-4 xl:py-5 ${i > 0 ? 'border-l border-white/10 pl-6 xl:pl-8' : ''}`}
               >
                 <p className="font-display text-2xl font-extrabold text-white xl:text-3xl">
                   <Counter to={s.value} suffix={s.suffix} />

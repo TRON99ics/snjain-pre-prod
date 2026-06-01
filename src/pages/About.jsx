@@ -20,8 +20,8 @@ export default function About() {
       {/* Intro statement */}
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-8xl px-5 sm:px-6 lg:px-10">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-16">
+          <div className="md:col-span-2 lg:col-span-7">
               <Reveal>
                 <p className="font-display text-2xl font-bold uppercase leading-[1.15] tracking-tight text-ink sm:text-3xl lg:text-4xl">
                   Sha Mulchand Navalram Jain was built on a single idea — to do business with integrity. Over

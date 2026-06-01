@@ -28,8 +28,8 @@ export default function GlobalPresence() {
         <div className="mx-auto max-w-8xl px-5 sm:px-6 lg:px-10">
           <div className="grid gap-px overflow-hidden border border-steel-100 bg-steel-100 sm:grid-cols-3">
             {globalStats.map((s) => (
-              <Reveal key={s.label} className="bg-white p-8 lg:p-10">
-                <p className="font-display text-5xl font-extrabold text-ink lg:text-6xl">
+              <Reveal key={s.label} className="bg-white p-6 sm:p-8 lg:p-10">
+                <p className="font-display text-4xl font-extrabold text-ink sm:text-5xl lg:text-6xl">
                   <Counter to={s.value} suffix={s.suffix} />
                 </p>
                 <p className="mt-3 text-sm uppercase tracking-[0.16em] text-steel-400">{s.label}</p>
@@ -73,9 +73,9 @@ export default function GlobalPresence() {
                       active === i ? 'border-l-2 border-l-red pl-4' : 'pl-0'
                     }`}
                   >
-                    <span className="flex items-center justify-between gap-4">
+                    <span className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                       <span
-                        className={`font-display text-lg font-bold uppercase tracking-tight transition-colors ${
+                        className={`font-display text-base font-bold uppercase tracking-tight transition-colors sm:text-lg ${
                           active === i ? 'text-red' : 'text-white'
                         }`}
                       >

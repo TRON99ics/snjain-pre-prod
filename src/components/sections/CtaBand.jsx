@@ -11,14 +11,14 @@ export default function CtaBand({
   return (
     <section className="bg-red">
       <div className="mx-auto max-w-8xl px-5 py-20 sm:px-6 lg:px-10 lg:py-28">
-        <div className="grid items-center gap-10 lg:grid-cols-12">
-          <Reveal className="lg:col-span-8">
-            <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
+        <div className="grid items-center gap-10 md:grid-cols-12">
+          <Reveal className="md:col-span-8">
+            <h2 className="font-display text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
               {title}
             </h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">{body}</p>
           </Reveal>
-          <Reveal custom={1} className="flex flex-col gap-3 sm:flex-row lg:col-span-4 lg:flex-col lg:items-end">
+          <Reveal custom={1} className="flex flex-col gap-3 sm:flex-row md:col-span-4 md:flex-col md:items-end lg:items-end">
             <Button variant="dark" onClick={openQuote}>
               Request a Quote
             </Button>

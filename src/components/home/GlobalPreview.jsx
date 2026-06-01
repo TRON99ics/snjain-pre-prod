@@ -41,7 +41,7 @@ export default function GlobalPreview() {
           </div>
 
           <div className="lg:col-span-6 lg:pl-10">
-            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-3">
               {globalStats.map((s) => (
                 <Reveal key={s.label} className="bg-ink p-8 lg:p-10">
                   <p className="font-display text-5xl font-extrabold lg:text-6xl">

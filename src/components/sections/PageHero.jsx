@@ -7,7 +7,7 @@ import { maskUp, stagger, fadeUp } from '../../lib/motion';
 export default function PageHero({ eyebrow, title, intro, image, index }) {
   const lines = Array.isArray(title) ? title : [title];
   return (
-    <section className="relative flex min-h-[68vh] items-end overflow-hidden bg-ink pb-16 pt-40 sm:min-h-[72vh] lg:pb-20">
+    <section className="relative flex min-h-[60vh] items-end overflow-hidden bg-ink pb-12 pt-28 sm:min-h-[68vh] sm:pb-16 sm:pt-36 md:min-h-[72vh] lg:pb-20 lg:pt-40">
       <motion.div
         initial={{ scale: 1.12 }}
         animate={{ scale: 1 }}
@@ -43,7 +43,7 @@ export default function PageHero({ eyebrow, title, intro, image, index }) {
           variants={stagger}
           initial="hidden"
           animate="show"
-          className="mt-5 max-w-5xl font-display text-5xl font-extrabold uppercase leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl"
+          className="mt-5 max-w-5xl font-display text-4xl font-extrabold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
         >
           {lines.map((line, i) => (
             <span key={i} className="block overflow-hidden">

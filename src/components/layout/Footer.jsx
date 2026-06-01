@@ -10,8 +10,8 @@ export default function Footer() {
   return (
     <footer className="bg-ink text-white">
       <div className="mx-auto max-w-8xl px-5 sm:px-6 lg:px-10">
-        <div className="grid gap-12 border-b border-white/10 py-16 lg:grid-cols-12 lg:py-24">
-          <div className="lg:col-span-5">
+        <div className="grid gap-12 border-b border-white/10 py-16 md:grid-cols-2 md:gap-x-10 lg:grid-cols-12 lg:py-24">
+          <div className="md:col-span-2 lg:col-span-5">
             <div className="flex items-center gap-3">
               <img src="/img/brand/logo.svg" alt="" className="h-12 w-12" />
               <div className="leading-tight">
@@ -37,7 +37,7 @@ export default function Footer() {
             <ul className="mt-6 space-y-3">
               {[{ label: 'Home', to: '/' }, ...navLinks, { label: 'Contact', to: '/contact' }].map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="text-sm text-white/70 transition-colors hover:text-white">
+                  <Link to={l.to} className="inline-block py-1 text-sm text-white/70 transition-colors hover:text-white">
                     {l.label}
                   </Link>
                 </li>

@@ -18,8 +18,8 @@ function markerIcon(active, hub) {
         <span class="trade-marker__dot"></span>
       </div>
     `,
-    iconSize: [28, 28],
-    iconAnchor: [14, 14],
+    iconSize: [36, 36],
+    iconAnchor: [18, 18],
   });
 }
 
@@ -66,7 +66,7 @@ export default function TradeMap({ active, onSelect }) {
   const hubPosition = useMemo(() => [HUB.lat, HUB.lng], []);
 
   return (
-    <div className="trade-map relative z-0 isolate h-[360px] w-full overflow-hidden border border-white/10 bg-ink sm:h-[400px] lg:h-[460px]">
+    <div className="trade-map relative z-0 isolate h-[min(360px,50vh)] w-full overflow-hidden border border-white/10 bg-ink sm:h-[400px] lg:h-[460px]">
       <MapContainer
         center={hubPosition}
         zoom={3}

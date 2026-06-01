@@ -87,7 +87,7 @@ export default function QuoteModal() {
             <button
               onClick={closeQuote}
               aria-label="Close"
-              className="absolute right-5 top-5 text-2xl leading-none text-steel-400 transition-colors hover:text-ink"
+              className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center text-2xl leading-none text-steel-400 transition-colors hover:text-ink sm:right-5 sm:top-5"
             >
               &times;
             </button>
@@ -122,9 +122,9 @@ export default function QuoteModal() {
                   ))}
                   <option value="Other / Mixed">Other / Mixed</option>
                 </select>
-                <div className="flex gap-3">
+                <div className="flex flex-col gap-3 sm:flex-row">
                   <input className={field} type="number" name="Quantity" placeholder="Quantity *" required min="1" />
-                  <select className={`${field} w-28 shrink-0`} name="Unit" required defaultValue="Ton">
+                  <select className={`${field} w-full shrink-0 sm:w-28`} name="Unit" required defaultValue="Ton">
                     <option value="Kg">Kg</option>
                     <option value="Ton">Ton</option>
                     <option value="Pieces">Pcs</option>
