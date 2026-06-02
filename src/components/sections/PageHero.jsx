@@ -1,13 +1,22 @@
 import { motion } from 'framer-motion';
 import { maskUp, stagger, fadeUp } from '../../lib/motion';
+import useHeroTopGap from '../../hooks/useHeroTopGap';
 
 /**
  * Inner-page hero with a dark industrial image, eyebrow, masked title and intro.
  */
 export default function PageHero({ eyebrow, title, intro, image, index }) {
   const lines = Array.isArray(title) ? title : [title];
+  const heroTopGapPx = useHeroTopGap();
+  const compactHero = heroTopGapPx != null;
+
   return (
-    <section className="relative flex min-h-[60vh] items-end overflow-hidden bg-ink pb-12 pt-28 sm:min-h-[68vh] sm:pb-16 sm:pt-36 md:min-h-[72vh] lg:pb-20 lg:pt-40">
+    <section
+      className={`relative flex min-h-[60vh] overflow-hidden bg-ink pb-12 pt-28 sm:min-h-[68vh] sm:pb-16 sm:pt-36 md:min-h-[72vh] lg:pb-20 lg:pt-40 ${
+        compactHero ? 'items-start' : 'items-end'
+      }`}
+      style={heroTopGapPx != null ? { paddingTop: heroTopGapPx } : undefined}
+    >
       <motion.div
         initial={{ scale: 1.12 }}
         animate={{ scale: 1 }}
@@ -24,7 +33,9 @@ export default function PageHero({ eyebrow, title, intro, image, index }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="mb-6 block font-display text-sm font-bold uppercase tracking-[0.3em] text-red"
+            className={`block font-display font-bold uppercase text-red ${
+              compactHero ? 'mb-4 text-sm tracking-[0.3em]' : 'mb-6 text-sm tracking-[0.3em]'
+            }`}
           >
             {index}
           </motion.span>
@@ -43,7 +54,11 @@ export default function PageHero({ eyebrow, title, intro, image, index }) {
           variants={stagger}
           initial="hidden"
           animate="show"
-          className="mt-5 max-w-5xl font-display text-4xl font-extrabold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+          className={
+            compactHero
+              ? 'mt-4 max-w-5xl font-display text-3xl font-extrabold uppercase leading-[0.92] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl'
+              : 'mt-5 max-w-5xl font-display text-4xl font-extrabold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl'
+          }
         >
           {lines.map((line, i) => (
             <span key={i} className="block overflow-hidden">
@@ -59,7 +74,11 @@ export default function PageHero({ eyebrow, title, intro, image, index }) {
             initial="hidden"
             animate="show"
             custom={3}
-            className="mt-8 max-w-2xl text-base leading-relaxed text-steel-200 sm:text-lg"
+            className={
+              compactHero
+                ? 'mt-6 max-w-2xl text-base leading-relaxed text-steel-200'
+                : 'mt-8 max-w-2xl text-base leading-relaxed text-steel-200 sm:text-lg'
+            }
           >
             {intro}
           </motion.p>

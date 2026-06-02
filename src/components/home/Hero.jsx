@@ -7,6 +7,7 @@ import Counter from '../ui/Counter';
 import { stats } from '../../data/company';
 import { media } from '../../data/media';
 import { useSiteAudio } from '../../context/SiteAudioContext';
+import useHeroTopGap from '../../hooks/useHeroTopGap';
 
 const VIDEO_LOAD_TIMEOUT_MS = 12000;
 
@@ -15,6 +16,8 @@ export default function Hero() {
   const videoRef = useRef(null);
   const { openQuote } = useQuote();
   const { enableAudible } = useSiteAudio();
+  const heroTopGapPx = useHeroTopGap();
+  const compactHero = heroTopGapPx != null;
   const [usePoster, setUsePoster] = useState(
     () =>
       typeof window !== 'undefined' &&
@@ -95,10 +98,15 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/40" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/70 to-transparent" />
 
-      <div className="relative mx-auto flex h-full min-h-0 w-full max-w-8xl flex-col px-5 pb-0 pt-24 sm:px-6 sm:pt-28 lg:px-10 lg:pt-32">
+      <div
+        className="relative mx-auto flex h-full min-h-0 w-full max-w-8xl flex-col px-5 pb-0 pt-24 sm:px-6 sm:pt-28 lg:px-10 lg:pt-32"
+        style={heroTopGapPx != null ? { paddingTop: heroTopGapPx } : undefined}
+      >
         <motion.div
           style={{ opacity }}
-          className="flex min-h-0 flex-1 flex-col justify-end pb-6 sm:pb-8 lg:pb-10"
+          className={`flex min-h-0 flex-1 flex-col pb-6 sm:pb-8 lg:pb-10 ${
+            compactHero ? 'justify-start overflow-y-auto overscroll-contain' : 'justify-end'
+          }`}
         >
           <motion.span
             initial={{ opacity: 0, y: 14 }}
@@ -113,7 +121,11 @@ export default function Hero() {
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="mt-4 max-w-5xl font-display text-[2rem] font-extrabold uppercase leading-[0.92] tracking-tight text-white min-[400px]:text-[2.35rem] sm:mt-5 sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]"
+            className={
+              compactHero
+                ? 'mt-3 max-w-5xl font-display text-[1.85rem] font-extrabold uppercase leading-[0.92] tracking-tight text-white min-[400px]:text-[2.1rem] sm:text-4xl md:text-5xl lg:text-6xl'
+                : 'mt-4 max-w-5xl font-display text-[2rem] font-extrabold uppercase leading-[0.92] tracking-tight text-white min-[400px]:text-[2.35rem] sm:mt-5 sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]'
+            }
           >
             {['Trading non-ferrous', 'metals & scrap', 'solutions.'].map((line, i) => (
               <span key={i} className="block overflow-hidden">
@@ -133,7 +145,11 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={4}
-            className="mt-5 max-w-xl text-base leading-relaxed text-steel-200 sm:mt-6 sm:text-lg"
+            className={
+              compactHero
+                ? 'mt-4 max-w-xl text-base leading-relaxed text-steel-200'
+                : 'mt-5 max-w-xl text-base leading-relaxed text-steel-200 sm:mt-6 sm:text-lg'
+            }
           >
             Supplying manufacturers, fabricators and exporters across India and global markets with consistent
             grades, inspected volume and dependable logistics.
@@ -144,14 +160,17 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={5}
-            className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row"
+            className={`flex flex-col gap-3 sm:flex-row ${compactHero ? 'mt-5 sm:mt-6' : 'mt-7 sm:mt-8'}`}
           >
             <button
+              type="button"
               onClick={() => {
                 void enableAudible();
                 openQuote();
               }}
-              className="group inline-flex items-center justify-center gap-3 bg-red px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-white hover:text-ink"
+              className={`group inline-flex items-center justify-center gap-3 bg-red text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-white hover:text-ink ${
+                compactHero ? 'px-7 py-3.5' : 'px-8 py-4'
+              }`}
             >
               Request a Quote
               <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
@@ -159,7 +178,9 @@ export default function Hero() {
             <Link
               to="/materials"
               onClick={() => void enableAudible()}
-              className="group inline-flex items-center justify-center gap-3 border border-white/30 px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-white hover:text-ink"
+              className={`group inline-flex items-center justify-center gap-3 border border-white/30 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-white hover:text-ink ${
+                compactHero ? 'px-7 py-3.5' : 'px-8 py-4'
+              }`}
             >
               View Materials
               <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
@@ -167,7 +188,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Stats sit inside the viewport — marquee is the next section below */}
         <motion.div
           style={{ opacity }}
           initial={{ opacity: 0, y: 12 }}
@@ -179,9 +199,11 @@ export default function Hero() {
             {stats.map((s, i) => (
               <div
                 key={s.label}
-                className={`py-4 xl:py-5 ${i > 0 ? 'border-l border-white/10 pl-6 xl:pl-8' : ''}`}
+                className={`${compactHero ? 'py-3' : 'py-4 xl:py-5'} ${i > 0 ? 'border-l border-white/10 pl-6 xl:pl-8' : ''}`}
               >
-                <p className="font-display text-2xl font-extrabold text-white xl:text-3xl">
+                <p
+                  className={`font-display font-extrabold text-white ${compactHero ? 'text-xl xl:text-2xl' : 'text-2xl xl:text-3xl'}`}
+                >
                   <Counter to={s.value} suffix={s.suffix} />
                 </p>
                 <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-white/60 xl:text-xs xl:tracking-[0.16em]">
