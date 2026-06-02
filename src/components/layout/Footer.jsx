@@ -16,13 +16,13 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <img src={media.brand.logo} alt="" className="h-12 w-auto max-w-[140px] object-contain" />
               <div className="leading-tight">
-                <p className="font-display text-lg font-extrabold uppercase tracking-tight">Sha Mulchand</p>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/50">Navalram Jain</p>
+                <p className="font-display text-base font-extrabold uppercase tracking-tight sm:text-lg">Sha Mulchand Navalram Jain</p>
+                <p className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">Est. 1965</p>
               </div>
             </div>
             <p className="mt-7 max-w-sm text-sm leading-relaxed text-white/60">
               Trusted non-ferrous metal, scrap and recycling solutions across India and global markets. A family
-              enterprise built on integrity since {company.established}.
+              enterprise built on integrity across generations.
             </p>
             <button
               onClick={openQuote}

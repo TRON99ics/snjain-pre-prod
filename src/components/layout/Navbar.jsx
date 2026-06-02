@@ -41,18 +41,31 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-[76px] max-w-8xl items-center justify-between px-5 sm:px-6 lg:px-10">
-        <Link to="/" className="flex min-w-0 items-center gap-2 sm:gap-3" aria-label={company.legalName}>
-          <img src={media.brand.logo} alt="" className="h-9 w-auto max-h-10 shrink-0 object-contain sm:h-10" />
-          <span className="hidden min-w-0 flex-col leading-none sm:flex">
+        <Link
+          to="/"
+          className="flex min-w-0 flex-1 items-center gap-1.5 pr-2 sm:flex-initial sm:gap-3 sm:pr-0"
+          aria-label={company.legalName}
+          title={company.legalName}
+        >
+          <img
+            src={media.brand.logo}
+            alt=""
+            className="h-8 w-auto max-h-9 shrink-0 object-contain sm:h-10 sm:max-h-10"
+          />
+          <span className="flex min-w-0 flex-col leading-none">
             <span
-              className={`truncate font-display text-sm font-extrabold uppercase tracking-tight ${dark ? 'text-ink' : 'text-white'}`}
+              className={`truncate font-display text-[10px] font-extrabold uppercase tracking-tight min-[380px]:text-[11px] sm:text-sm ${
+                dark ? 'text-ink' : 'text-white'
+              }`}
             >
-              Sha Mulchand
+              {company.legalName}
             </span>
             <span
-              className={`text-[10px] font-medium uppercase tracking-[0.2em] ${dark ? 'text-steel-400' : 'text-white/70'}`}
+              className={`mt-0.5 truncate text-[9px] font-medium uppercase tracking-[0.16em] min-[380px]:text-[10px] min-[380px]:tracking-[0.2em] ${
+                dark ? 'text-steel-400' : 'text-white/70'
+              }`}
             >
-              Navalram Jain · Est. 1965
+              Est. {company.established}
             </span>
           </span>
         </Link>
