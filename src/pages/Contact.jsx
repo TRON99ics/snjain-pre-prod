@@ -61,7 +61,7 @@ export default function Contact() {
         index="08"
         eyebrow="Contact"
         title={['Let’s talk', 'material.']}
-        intro="Procurement teams, manufacturers and exporters — reach our desk directly for availability, grades, pricing and logistics."
+        intro="Procurement teams, manufacturers and exporters can reach our desk directly for availability, grades, pricing and logistics."
         image={media.hero.images.mainbg2}
       />
 
