@@ -8,7 +8,7 @@ export const company = {
   shortName: 'SMNJ',
   established: 1965,
   tagline: 'Non-Ferrous Metals · Scrap · Recycling',
-  phone: '+91 98203 35175',
+  phoneLabel: 'Call us',
   phoneHref: 'tel:+919820335175',
   whatsapp: `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(whatsappMessage)}`,
   email: 'shamnjain@yahoo.in',
